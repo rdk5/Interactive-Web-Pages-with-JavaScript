@@ -59,12 +59,9 @@ var addTask = function() {
 //Edit an existing task
 var editTask = function() {
   console.log("Edit task...");
-
   var listItem = this.parentNode;
-
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
-  
   var containsClass = listItem.classList.contains("editMode");
 
   //When the Edit button is pressed
@@ -122,7 +119,13 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
 }
 
 //Set the click handler to the addTask function
-addButton.onclick = addTask;
+var ajaxRequest = function() {
+    console.log("AJAX request");
+}
+
+//Set the click handler to the addTask function
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
 
 //cycle over incompleteTasksHolder ul list items
 for(var i = 0; i < incompleteTasksHolder.children.length; i++) {
